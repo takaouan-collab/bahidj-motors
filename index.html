@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1a1e1a">
+<title>Bahidj Motors — Alger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1a1e1a;--bg2:#222722;--gold:#c8a55e;--gold-light:#e8d5a3;--gold-dark:#a8883e;--text:#f5f5f0;--text2:#a8a8a4;--text3:#7a7a76;--border:rgba(255,255,255,0.06);--border-gold:rgba(200,165,94,0.15)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;font-weight:300;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:.02em}
+img{max-width:100%;display:block}
+
+/* === HEADER === */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;background:rgba(26,30,26,0.85);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 24px;max-width:1440px;margin:0 auto}
+.header-left,.header-right{display:none;align-items:center;gap:4px}
+.header-left{flex:1;justify-content:flex-start}
+.header-right{flex:1;justify-content:flex-end}
+.header-logo{position:absolute;left:50%;transform:translateX(-50%)}
+.header-logo a{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-wing{display:flex;align-items:center;gap:2px}
+.logo-wing svg{width:32px;height:32px}
+.header-logo-text{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;letter-spacing:2px;color:var(--text)}
+.header-logo-text span{color:var(--gold)}
+.header-left a{color:var(--text2);text-decoration:none;font-size:.7rem;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;padding:8px 12px;transition:color .3s;white-space:nowrap}
+.header-left a:hover{color:var(--text)}
+.header-right .btn-ghost{color:var(--text2);text-decoration:none;font-size:.65rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:8px 16px;transition:color .3s;white-space:nowrap}
+.header-right .btn-ghost:hover{color:var(--text)}
+.header-right .btn-wa{background:#25d366;color:#fff;text-decoration:none;font-size:.65rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:8px 18px;border-radius:100px;transition:all .3s;white-space:nowrap}
+.header-burger{display:flex;align-items:center;gap:6px;background:none;border:none;color:var(--text2);font-family:'Inter',sans-serif;font-size:.7rem;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;padding:8px}
+.header-burger svg{width:18px;height:18px;stroke:var(--text2);fill:none;stroke-width:1.5}
+
+/* === HERO === */
+.hero{position:relative;height:100dvh;min-height:600px;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#1a1e1a,#0d120e)}
+.hero-img{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.35;transition:opacity 1s}
+.hero-img.dct{background-image:url('images/binyue_dct_angle3.png')}
+.hero-img.man{background-image:url('images/binyue_man_exterior1.png')}
+.hero-gradient{position:absolute;inset:0;background:linear-gradient(to top,var(--bg) 25%,transparent 65%)}
+.hero-gradient-top{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,30,26,0.6) 0%,transparent 40%)}
+.hero-content{position:relative;z-index:2;padding:0 24px 80px;width:100%;max-width:1440px;margin:0 auto}
+.hero-tag{font-size:.55rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:6px}
+.hero h1{font-size:2.8rem;line-height:1.05;margin-bottom:6px}
+.hero h1 em{font-style:italic;color:var(--gold);font-weight:500}
+.hero p{font-size:.85rem;color:var(--text2);line-height:1.7;margin-bottom:28px;max-width:500px;font-weight:300}
+.hero-buttons{display:flex;gap:12px}
+.hero-buttons a{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:100px;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;text-decoration:none;transition:all .3s}
+.hero-buttons .btn-primary{background:var(--gold);color:var(--bg)}
+.hero-buttons .btn-outline{border:1px solid rgba(255,255,255,0.12);color:var(--text)}
+.hero-nav{position:absolute;bottom:80px;right:24px;z-index:3;display:flex;gap:6px}
+.hero-nav button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,0.1);background:rgba(0,0,0,0.35);color:var(--text2);font-size:.55rem;font-weight:500;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:all .3s}
+.hero-nav button.active{border-color:var(--gold);color:var(--gold)}
+
+/* === SECTION === */
+.section{padding:80px 24px;max-width:1440px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:48px}
+.section-label{display:inline-flex;align-items:center;gap:16px;font-size:.5rem;text-transform:uppercase;letter-spacing:4px;color:var(--gold);font-weight:400;margin-bottom:12px}
+.section-label::before,.section-label::after{content:'';width:32px;height:1px;background:linear-gradient(to right,var(--gold),transparent)}
+.section-label::after{background:linear-gradient(to left,var(--gold),transparent)}
+.section-title{font-size:2.2rem;line-height:1.1}
+.section-sub{color:var(--text2);font-size:.85rem;line-height:1.8;margin-top:10px;max-width:600px;margin:10px auto 0}
+
+/* === CAR MODELS === */
+.models{display:flex;flex-direction:column;gap:64px}
+.model{border-bottom:1px solid var(--border);padding-bottom:64px}
+.model:last-child{border-bottom:none;padding-bottom:0}
+.model-header{margin-bottom:20px}
+.model-name{font-size:1.8rem;line-height:1.1}
+.model-name small{display:block;font-family:'Inter',sans-serif;font-size:.65rem;font-weight:300;color:var(--text2);text-transform:uppercase;letter-spacing:2px;margin-top:4px;font-style:normal}
+.model-badge{display:inline-block;font-family:'Inter',sans-serif;font-size:.5rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:100px;border:1px solid rgba(200,165,94,0.2);color:var(--gold-light);background:rgba(200,165,94,0.04);margin-top:10px}
+.model-badge.gold{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+.model-img{width:100%;height:320px;border-radius:16px;overflow:hidden;background-size:cover;background-position:center;cursor:pointer;position:relative;margin-bottom:24px;box-shadow:0 8px 40px rgba(0,0,0,0.3)}
+.model-img::after{content:'\25B6 ' attr(data-count);position:absolute;bottom:16px;right:16px;background:rgba(0,0,0,0.65);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.06);padding:7px 16px;border-radius:100px;font-size:.6rem;color:var(--text2);font-family:'Inter',sans-serif;letter-spacing:.5px}
+.model-specs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.model-spec{padding:10px 14px;background:var(--bg2);border-radius:10px;border:1px solid var(--border)}
+.model-spec-label{font-size:.5rem;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);font-weight:500}
+.model-spec-value{font-size:.75rem;font-weight:500;margin-top:2px}
+.model-equip{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:20px}
+.model-equip span{background:var(--bg2);border:1px solid var(--border);padding:4px 12px;border-radius:100px;font-size:.6rem;color:var(--text2)}
+.model-footer{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;align-items:center}
+.model-price-label{font-size:.5rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3)}
+.model-price-value{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--gold);letter-spacing:.03em}
+.model-dz-tag{display:inline-block;font-size:.5rem;color:var(--gold);border:1px solid var(--border-gold);padding:2px 10px;border-radius:100px;margin-top:2px;font-weight:400;letter-spacing:.5px;background:rgba(200,165,94,0.04)}
+.model-buy{display:flex;align-items:center;gap:6px;background:#25d366;color:#fff;text-decoration:none;padding:10px 22px;border-radius:100px;font-size:.75rem;font-weight:600;transition:all .3s}
+.model-buy:active{transform:scale(0.95)}
+.model-buy svg{width:14px;height:14px;fill:#fff}
+
+/* === COMPARISON === */
+.comparison{background:var(--bg2);border-radius:20px;border:1px solid var(--border);padding:32px 24px;margin-top:48px}
+.comparison h3{font-size:1.4rem;margin-bottom:20px;text-align:center}
+.comparison h3 span{color:var(--gold)}
+.comparison table{width:100%;border-collapse:collapse;font-size:.7rem}
+.comparison th,.comparison td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--border)}
+.comparison th{font-size:.5rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);font-weight:500}
+.comparison td:first-child{color:var(--text2);font-weight:400}
+.comparison td{color:var(--text);font-weight:300}
+
+/* === WHY === */
+.why-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:32px}
+.why-card{padding:32px 24px;background:var(--bg2);border-radius:16px;border:1px solid var(--border);text-align:center}
+.why-card h4{font-size:.9rem;margin-bottom:6px;font-family:'Inter',sans-serif}
+.why-card p{font-size:.75rem;color:var(--text2);line-height:1.6;font-weight:300}
+
+/* === CTA === */
+.cta{padding:80px 24px;text-align:center;border-top:1px solid var(--border);max-width:1440px;margin:0 auto}
+.cta h2{font-size:2rem}
+.cta h2 span{color:var(--gold)}
+.cta p{color:var(--text2);font-size:.85rem;margin:12px auto 28px;max-width:400px}
+.cta a{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;text-decoration:none;padding:14px 32px;border-radius:100px;font-size:.8rem;font-weight:600}
+
+/* === FOOTER === */
+footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);color:var(--text2);font-size:.75rem}
+footer strong{color:var(--text);font-family:'Cormorant Garamond',serif;font-weight:600}
+footer .gold{color:var(--gold)}
+footer .footer-links{display:flex;justify-content:center;gap:24px;margin:12px 0 6px;flex-wrap:wrap}
+footer .footer-links a{color:var(--text3);text-decoration:none;font-size:.65rem}
+footer .phone{font-size:.65rem;opacity:.5;margin-top:8px;letter-spacing:1px}
+
+/* === FLOAT WA === */
+.float-wa{position:fixed;bottom:20px;right:16px;z-index:998}
+.float-wa a{display:flex;align-items:center;gap:8px;background:#25d366;color:#fff;text-decoration:none;padding:12px 20px;border-radius:100px;font-size:.75rem;font-weight:600;box-shadow:0 4px 20px rgba(37,211,102,0.3)}
+.float-wa a:active{transform:scale(0.95)}
+.float-wa svg{width:16px;height:16px;fill:#fff}
+
+/* === LIGHTBOX === */
+.lightbox{display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.97);justify-content:center;align-items:center;flex-direction:column}
+.lightbox.open{display:flex}
+.lightbox-close{position:absolute;top:12px;right:16px;z-index:10;background:none;border:none;color:#fff;font-size:2rem;padding:8px;cursor:pointer}
+.lightbox-img{max-width:96vw;max-height:72vh;object-fit:contain;border-radius:8px}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.04);border:none;color:#fff;font-size:1.2rem;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lightbox-prev{left:8px}
+.lightbox-next{right:8px}
+.lightbox-info{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;color:var(--text2);font-size:.7rem;background:rgba(0,0,0,0.6);padding:6px 16px;border-radius:100px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.lightbox-dots{display:flex;gap:6px}
+.lightbox-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.15);cursor:pointer;border:none}
+.lightbox-dot.active{background:var(--gold)}
+
+/* === ANIMATIONS === */
+.fade-in{opacity:0;transform:translateY(20px);transition:all .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+@media(min-width:768px){
+header{height:72px}
+.header-inner{height:72px;padding:0 32px}
+.header-left,.header-right{display:flex}
+.header-logo{position:static;transform:none}
+.header-burger{display:none}
+.hero-content{padding:0 48px 100px}
+.hero h1{font-size:4rem;max-width:650px}
+.hero p{font-size:.9rem}
+.hero-nav{right:48px;bottom:100px}
+.hero-buttons a{padding:16px 36px}
+.model-img{height:420px}
+.model-name{font-size:2.2rem}
+.model-specs{grid-template-columns:1fr 1fr 1fr 1fr}
+.why-grid{grid-template-columns:1fr 1fr 1fr}
+.section{padding:100px 48px}
+.section-title{font-size:2.8rem}
+}
+@media(min-width:1200px){
+.hero h1{font-size:5rem}
+.model-img{height:520px}
+.header-inner{padding:0 48px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="#vehicules">Véhicules</a>
+      <a href="#comparatif">Comparatif</a>
+      <a href="#pratique">Infos Algérie</a>
+      <a href="#pourquoi">Pourquoi nous</a>
+    </div>
+    <div class="header-logo">
+      <a href="#">
+        <div class="logo-wing">
+          <svg viewBox="0 0 34 34" fill="none">
+            <path d="M1 17C1 17 7 4 17 4" stroke="#c8a55e" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M1 17C1 17 8 6 14 4" stroke="#c8a55e" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
+            <path d="M1 17C1 17 9 2 17 1" stroke="#c8a55e" stroke-width="0.5" stroke-linecap="round" opacity="0.25"/>
+            <path d="M33 17C33 17 27 4 17 4" stroke="#c8a55e" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M33 17C33 17 26 6 20 4" stroke="#c8a55e" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
+            <path d="M33 17C33 17 25 2 17 1" stroke="#c8a55e" stroke-width="0.5" stroke-linecap="round" opacity="0.25"/>
+            <text x="17" y="21" text-anchor="middle" fill="#c8a55e" font-family="Cormorant Garamond, serif" font-size="20" font-weight="600" dominant-baseline="middle">B</text>
+          </svg>
+        </div>
+        <div class="header-logo-text">Bahidj <span>Motors</span></div>
+      </a>
+    </div>
+    <div class="header-right">
+      <a class="btn-ghost" href="tel:+213XXXXXXXXX">+213 X XX XX XX</a>
+      <a class="btn-wa" href="https://wa.me/213XXXXXXXXX" target="_blank">WhatsApp</a>
+    </div>
+    <button class="header-burger" onclick="toggleMenu()">
+      Menu <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<ul class="mobile-menu" id="mobileMenu"></ul>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-img dct" id="heroImg"></div>
+  <div class="hero-gradient-top"></div>
+  <div class="hero-gradient"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Import direct — Alger</div>
+    <h1>L'excellence <br>automobile <em>signée</em></h1>
+    <p>Bahidj Motors importe et vous propose le Geely Binyue / Coolray 2025. Deux motorisations, un même raffinement.</p>
+    <div class="hero-buttons">
+      <a class="btn-primary" href="#vehicules">Découvrir</a>
+      <a class="btn-outline" href="https://wa.me/213XXXXXXXXX" target="_blank">Contact</a>
+    </div>
+  </div>
+  <div class="hero-nav">
+    <button class="active" data-car="dct" onclick="switchHero('dct')">T</button>
+    <button data-car="man" onclick="switchHero('man')">M</button>
+  </div>
+</section>
+
+<section class="section" id="vehicules">
+  <div class="section-header fade-in">
+    <div class="section-label">Notre sélection</div>
+    <h2 class="section-title">Deux motorisations, un même luxe</h2>
+    <p class="section-sub">Puissance du turbo DCT 181 ch ou sobriété de la version manuelle 126 ch.</p>
+  </div>
+
+  <div class="models">
+    <!-- TURBO DCT -->
+    <div class="model fade-in">
+      <div class="model-header">
+        <div class="model-name">Geely Binyue L <small>Coolray L 1.5TD DCT — StarShine</small></div>
+        <div class="model-badge gold">Nouveau</div>
+      </div>
+      <div class="model-img" style="background-image:url('images/binyue_dct_angle3.png')" onclick="openLightbox('dct',0)" data-count="4 photos"></div>
+      <div class="model-specs">
+        <div class="model-spec"><div class="model-spec-label">Moteur</div><div class="model-spec-value">BHE15-EFZ 1.5L Turbo</div></div>
+        <div class="model-spec"><div class="model-spec-label">Puissance</div><div class="model-spec-value">181 ch (133 kW)</div></div>
+        <div class="model-spec"><div class="model-spec-label">Couple</div><div class="model-spec-value">290 Nm</div></div>
+        <div class="model-spec"><div class="model-spec-label">Boîte</div><div class="model-spec-value">DCT7 traction</div></div>
+        <div class="model-spec"><div class="model-spec-label">0-100 km/h</div><div class="model-spec-value">7,6 s</div></div>
+        <div class="model-spec"><div class="model-spec-label">Vitesse max</div><div class="model-spec-value">200 km/h</div></div>
+        <div class="model-spec"><div class="model-spec-label">Conso mixte</div><div class="model-spec-value">6,35 L/100km</div></div>
+        <div class="model-spec"><div class="model-spec-label">Dimensions</div><div class="model-spec-value">4 380 x 1 800 x 1 609</div></div>
+      </div>
+      <div class="model-equip">
+        <span>Conduite L2</span><span>Caméra 360°+540°</span><span>ACC adaptatif</span><span>Écran 14,6"</span><span>Toit panoramique</span><span>Sièges électriques</span><span>Hayon électrique</span><span>Flyme Auto</span><span>Jantes 18"</span><span>Feux LED</span>
+      </div>
+        <div class="model-footer">
+        <div>
+          <div class="model-price-label">Prix tout compris (dédouané)</div>
+          <div class="model-price-value">Nous consulter</div>
+          <div class="model-dz-tag">&#x1F1E9;&#x1F1FF; Paiement en DZD</div>
+        </div>
+        <a class="model-buy" href="https://wa.me/213XXXXXXXXX?text=Bonjour%20Bahidj%20Motors%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Geely%20Binyue%20L%20Turbo%20DCT%20181ch%20(pour%20Alg%C3%A9rie)" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Acheter
+        </a>
+      </div>
+    </div>
+
+    <!-- MANUELLE -->
+    <div class="model fade-in">
+      <div class="model-header">
+        <div class="model-name">Geely Binyue <small>1.5L 126ch — Édition Manuelle</small></div>
+        <div class="model-badge">Économique</div>
+      </div>
+      <div class="model-img" style="background-image:url('images/binyue_man_exterior1.png')" onclick="openLightbox('man',0)" data-count="4 photos"></div>
+      <div class="model-specs">
+        <div class="model-spec"><div class="model-spec-label">Moteur</div><div class="model-spec-value">BHE15-AFD Atmosph.</div></div>
+        <div class="model-spec"><div class="model-spec-label">Puissance</div><div class="model-spec-value">126 ch (93 kW)</div></div>
+        <div class="model-spec"><div class="model-spec-label">Couple</div><div class="model-spec-value">152 Nm</div></div>
+        <div class="model-spec"><div class="model-spec-label">Boîte</div><div class="model-spec-value">BVM5 traction</div></div>
+        <div class="model-spec"><div class="model-spec-label">Vitesse max</div><div class="model-spec-value">175 km/h</div></div>
+        <div class="model-spec"><div class="model-spec-label">Poids</div><div class="model-spec-value">1 255 kg</div></div>
+        <div class="model-spec"><div class="model-spec-label">Conso mixte</div><div class="model-spec-value">6,46 L/100km</div></div>
+        <div class="model-spec"><div class="model-spec-label">Dimensions</div><div class="model-spec-value">4 330 x 1 800 x 1 609</div></div>
+      </div>
+      <div class="model-equip">
+        <span>ABS/EBD/ESP</span><span>Caméra recul</span><span>Radars AR</span><span>Régulateur</span><span>Écran 8"</span><span>Bluetooth</span><span>Sellerie cuir noir</span><span>Banquette 60/40</span>
+      </div>
+      <div class="model-footer">
+        <div>
+          <div class="model-price-label">Prix tout compris (dédouané)</div>
+          <div class="model-price-value">Nous consulter</div>
+          <div class="model-dz-tag">&#x1F1E9;&#x1F1FF; Paiement en DZD</div>
+        </div>
+        <a class="model-buy" href="https://wa.me/213XXXXXXXXX?text=Bonjour%20Bahidj%20Motors%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Geely%20Binyue%20Manuelle%20126ch%20(pour%20Alg%C3%A9rie)" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Acheter
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="comparison fade-in" id="comparatif">
+    <h3>Comparatif <span>technique</span></h3>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Caractéristique</th><th>Turbo DCT</th><th>Manuelle</th></tr></thead>
+      <tbody>
+        <tr><td>Moteur</td><td>BHE15-EFZ Turbo</td><td>BHE15-AFD Atmosph.</td></tr>
+        <tr><td>Puissance</td><td>181 ch (133 kW)</td><td>126 ch (93 kW)</td></tr>
+        <tr><td>Couple</td><td>290 Nm</td><td>152 Nm</td></tr>
+        <tr><td>Boîte</td><td>DCT 7 (auto.)</td><td>Manuelle 5 vit.</td></tr>
+        <tr><td>0-100 km/h</td><td>7,6 s</td><td>—</td></tr>
+        <tr><td>Vitesse max</td><td>200 km/h</td><td>175 km/h</td></tr>
+        <tr><td>Conso mixte</td><td>6,35 L/100km</td><td>6,46 L/100km</td></tr>
+        <tr><td>Dimensions</td><td>4 380 x 1 800 x 1 609</td><td>4 330 x 1 800 x 1 609</td></tr>
+        <tr><td>Pneus</td><td>215/55 R18</td><td>215/65 R16</td></tr>
+        <tr><td>Poids</td><td>—</td><td>1 255 kg</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<div class="section" id="pratique">
+  <div class="section-header fade-in">
+    <div class="section-label">Infos pratiques</div>
+    <h2 class="section-title">Pensé pour <span style="color:var(--gold)">l'Algérie</span></h2>
+    <p class="section-sub">Achetez votre véhicule en toute sérénité, de la commande à la livraison.</p>
+  </div>
+
+  <div class="why-grid" style="margin-top:32px">
+    <div class="why-card fade-in">
+      <div style="font-size:1.4rem;margin-bottom:8px">&#x1F4B0;</div>
+      <h4>Paiement en DZD</h4>
+      <p>Règlement en dinars algériens. Virement CCP, BADR, BNA ou espèces.</p>
+    </div>
+    <div class="why-card fade-in">
+      <div style="font-size:1.4rem;margin-bottom:8px">&#x1F69A;</div>
+      <h4>Livraison 58 wilayas</h4>
+      <p>Transport sécurisé de votre véhicule jusqu'à votre wilaya.</p>
+    </div>
+    <div class="why-card fade-in">
+      <div style="font-size:1.4rem;margin-bottom:8px">&#x1F4C4;</div>
+      <h4>Documents simplifiés</h4>
+      <p>Carte d'identité + extrait de naissance N°12. On s'occupe du reste.</p>
+    </div>
+  </div>
+
+  <div class="comparison fade-in" style="margin-top:32px">
+    <h3>Documents <span>nécessaires</span></h3>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Document</th><th>Requis</th><th>Fourni par</th></tr></thead>
+      <tbody>
+        <tr><td>Carte d'identité nationale (CNI)</td><td>&#10003; Oui</td><td>Vous</td></tr>
+        <tr><td>Extrait de naissance N°12</td><td>&#10003; Oui</td><td>Vous</td></tr>
+        <tr><td>Numéro d'identification fiscale (NIF)</td><td>&#10003; Oui</td><td>Vous</td></tr>
+        <tr><td>Certificat de domicile</td><td>&#10003; Oui</td><td>Vous</td></tr>
+        <tr><td>Certificat de conformité constructeur</td><td>&#10003; Oui</td><td>Bahidj Motors</td></tr>
+        <tr><td>Facture d'achat internationale</td><td>&#10003; Oui</td><td>Bahidj Motors</td></tr>
+        <tr><td>Dédouanement & carte grise</td><td>&#10003; Oui</td><td>Bahidj Motors</td></tr>
+        <tr><td>Transport & livraison</td><td>&#10003; Oui</td><td>Bahidj Motors</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="comparison fade-in" style="margin-top:24px;background:var(--bg2);border:1px solid var(--border-gold)">
+    <h3>Calculateur <span>estimatif</span></h3>
+    <p style="text-align:center;font-size:.75rem;color:var(--text2);margin-bottom:20px;max-width:500px;margin-left:auto;margin-right:auto">Estimation du budget total (véhicule + douane + transport) rendu Algérie</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:500px;margin:0 auto">
+      <div class="model-spec" style="grid-column:1/-1">
+        <div class="model-spec-label">Prix du véhicule (EUR)</div>
+        <input type="number" id="prixEur" value="28500" style="width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;font-size:.9rem;font-family:'Inter',sans-serif;margin-top:4px">
+      </div>
+      <div class="model-spec">
+        <div class="model-spec-label">Frais douane estimés</div>
+        <div class="model-spec-value" id="fraisDouane">—</div>
+      </div>
+      <div class="model-spec">
+        <div class="model-spec-label">Transport & divers</div>
+        <div class="model-spec-value" id="fraisTransport">—</div>
+      </div>
+      <div class="model-spec" style="grid-column:1/-1;border-color:var(--gold)">
+        <div class="model-spec-label">&#x1F1E9;&#x1F1FF; Total estimé en DZD</div>
+        <div class="model-spec-value" id="totalDzd" style="font-size:1.1rem;color:var(--gold);font-family:'Cormorant Garamond',serif;font-weight:600">—</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="pourquoi">
+  <div class="section-header fade-in">
+    <div class="section-label">Pourquoi nous</div>
+    <h2 class="section-title">L'excellence à chaque <span style="color:var(--gold)">étape</span></h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card fade-in">
+      <h4>Importation directe</h4>
+      <p>Véhicules importés depuis Istanbul, Turquie. Contrôle qualité rigoureux.</p>
+    </div>
+    <div class="why-card fade-in">
+      <h4>Modèles 2025</h4>
+      <p>Premiers lots du nouveau Geely Binyue / Coolray 2025.</p>
+    </div>
+    <div class="why-card fade-in">
+      <h4>Livraison partout</h4>
+      <p>Nous livrons votre véhicule à Alger et dans toutes les wilayas.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta" id="contact">
+  <h2>Prêt à passer à <span>l'action ?</span></h2>
+  <p>Contactez-nous sur WhatsApp pour un devis personnalisé ou un essai.</p>
+  <a href="https://wa.me/213XXXXXXXXX" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+</div>
+
+<footer>
+  <p><strong>Bahidj <span class="gold">Motors</span></strong> — Alger, Algérie</p>
+  <div class="footer-links">
+    <a href="#vehicules">Véhicules</a>
+    <a href="#comparatif">Comparatif</a>
+    <a href="#pourquoi">Pourquoi nous</a>
+    <a href="https://wa.me/213XXXXXXXXX" target="_blank">WhatsApp</a>
+  </div>
+  <p class="phone">+213 X XX XX XX</p>
+</footer>
+
+<div class="float-wa">
+  <a href="https://wa.me/213XXXXXXXXX" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <button class="lightbox-nav lightbox-prev" onclick="prevPhoto()">&#8249;</button>
+  <button class="lightbox-nav lightbox-next" onclick="nextPhoto()">&#8250;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <div class="lightbox-info">
+    <span id="lightboxCounter"></span>
+    <div class="lightbox-dots" id="lightboxDots"></div>
+  </div>
+</div>
+
+<script>
+const galleries={dct:["images/binyue_dct_front.png","images/binyue_dct_rear.png","images/binyue_dct_angle2.png","images/binyue_dct_angle3.png"],man:["images/binyue_man_exterior1.png","images/binyue_man_exterior2.png","images/binyue_man_exterior3.png","images/binyue_man_exterior4.png"]};
+const labels={dct:["Avant","Arrière","Angle 1","Angle 2"],man:["Extérieur 1","Extérieur 2","Extérieur 3","Extérieur 4"]};
+let cur=null,idx=0;
+
+function switchHero(car){
+  document.getElementById('heroImg').className='hero-img '+car;
+  document.querySelectorAll('.hero-nav button').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.hero-nav button[data-car="'+car+'"]').classList.add('active');
+}
+
+function openLightbox(g,i){
+  cur=g;idx=i;
+  const imgs=galleries[g];
+  document.getElementById('lightboxImg').src=imgs[i];
+  document.getElementById('lightboxCounter').textContent=(i+1)+' / '+imgs.length+' — '+(labels[g][i]||'');
+  const dots=document.getElementById('lightboxDots');
+  dots.innerHTML='';
+  imgs.forEach((_,j)=>{
+    const d=document.createElement('button');
+    d.className='lightbox-dot'+(j===i?' active':'');
+    d.onclick=()=>openLightbox(g,j);
+    dots.appendChild(d)
+  });
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden'
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow=''
+}
+function nextPhoto(){
+  if(!cur)return;
+  const imgs=galleries[cur];
+  idx=(idx+1)%imgs.length;
+  openLightbox(cur,idx)
+}
+function prevPhoto(){
+  if(!cur)return;
+  const imgs=galleries[cur];
+  idx=(idx-1+imgs.length)%imgs.length;
+  openLightbox(cur,idx)
+}
+function calcBudget(){
+  const eur=parseFloat(document.getElementById('prixEur').value)||0;
+  const douane=Math.round(eur*0.45);
+  const transport=180000;
+  const totalEur=eur+douane/100+transport/250;
+  const dzd=Math.round((eur*250)+douane+transport);
+  document.getElementById('fraisDouane').textContent=douane.toLocaleString('fr-DZ')+' DZD';
+  document.getElementById('fraisTransport').textContent=transport.toLocaleString('fr-DZ')+' DZD';
+  document.getElementById('totalDzd').textContent=dzd.toLocaleString('fr-DZ')+' DZD';
+}
+document.getElementById('prixEur')?.addEventListener('input',calcBudget);
+setTimeout(calcBudget,100);
+
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('lightbox').classList.contains('open'))return;
+  if(e.key==='Escape')closeLightbox();
+  if(e.key==='ArrowRight')nextPhoto();
+  if(e.key==='ArrowLeft')prevPhoto()
+});
+
+function toggleMenu(){
+  const m=document.getElementById('mobileMenu');
+  m.classList.toggle('open');
+  if(m.classList.contains('open')){
+    m.innerHTML='<button class="mobile-close" onclick="toggleMenu()">&times;</button><li><a href="#vehicules" onclick="toggleMenu()">Véhicules</a></li><li><a href="#comparatif" onclick="toggleMenu()">Comparatif</a></li><li><a href="#pratique" onclick="toggleMenu()">Infos Algérie</a></li><li><a href="#pourquoi" onclick="toggleMenu()">Pourquoi nous</a></li><li><a href="#contact" onclick="toggleMenu()">Contact</a></li><li><a class="mobile-wa" href="https://wa.me/213XXXXXXXXX" target="_blank" onclick="toggleMenu()">WhatsApp</a></li>';
+  }
+}
+
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})
+},{threshold:.1});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
